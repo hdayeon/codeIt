@@ -87,7 +87,7 @@ const TodoHome: React.FC = () => {
       </S.HomeInputRow>
       <S.TodoListRow>
         <S.TodoListSection>
-          {/* <TodoIcon /> */}
+          <TodoIcon />
           <S.TodoList>
             {todos
               ?.filter((item) => !item.isCompleted)
@@ -105,7 +105,7 @@ const TodoHome: React.FC = () => {
           </S.TodoList>
         </S.TodoListSection>
         <S.DoneListSection>
-          {/* <DoneIcon /> */}
+          <DoneIcon />
           <S.DoneList>
             {todos
               ?.filter((item) => item.isCompleted)
