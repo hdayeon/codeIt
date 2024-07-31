@@ -1,9 +1,14 @@
-NextJs TypeScript
+[NextJs TypeScript Styled-components](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=fff&style=for-the-badge
+https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white
+
+-----
 
 # Todo App
 ## **프로젝트 개요**
 
 • 제목: **Do It**
+
 • 소개: 할 일 목록을 관리하는 To Do 서비스
 
 ### 홈 목록 페이지
