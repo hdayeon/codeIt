@@ -8,7 +8,7 @@ export const DetailLayout = styled.article`
   height: 100vh;
   margin: 0 auto;
   background-color: #fff;
-  font-family: "NanumSquareR";
+  font-family: "NanumSquare";
   color: ${palette.slate800};
 
   ${media.medium`
@@ -22,7 +22,7 @@ export const DetailBox = styled.div`
   height: 100vh;
 
   background-color: #fff;
-  font-family: "NanumSquareR";
+  font-family: "NanumSquare";
 
   display: flex;
   flex-direction: column;

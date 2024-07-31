@@ -7,7 +7,7 @@ export const HomeLayout = styled.div`
   max-width: 1200px;
   height: 100vh;
   margin: 24px auto 0;
-  font-family: "NanumSquareR";
+  font-family: "NanumSquare";
   color: ${palette.slate800};
 `;
 
@@ -49,6 +49,24 @@ export const AddBtn = styled.button`
   `};
 `;
 
+export const AddActBtn = styled.button`
+  width: 168px;
+  min-width: 162px;
+  height: 56px;
+  border: none;
+  background-color: transparent;
+  background-image: url("/addActL.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  ${media.small`
+    width: 56px;
+    min-width: 56px;
+    height: 56px;
+    background-image: url("/addActS.png");
+  `};
+`;
+
 export const TodoListRow = styled.div`
   width: 100%;
   display: flex;
@@ -71,11 +89,13 @@ export const DoneListSection = styled.section`
 export const TodoList = styled.ul`
   width: 100%;
   margin: 16px 0 0;
+  text-align: center;
 `;
 
 export const DoneList = styled.ul`
   width: 100%;
   margin: 16px 0 0;
+  text-align: center;
 `;
 
 export const TodoListItem = styled.li`
@@ -88,6 +108,7 @@ export const TodoListItem = styled.li`
   align-items: center;
   gap: 16px;
   margin-bottom: 16px;
+  text-align: left;
 `;
 
 export const DoneListItem = styled.li`
@@ -101,6 +122,7 @@ export const DoneListItem = styled.li`
   align-items: center;
   gap: 16px;
   margin-bottom: 16px;
+  text-align: left;
 `;
 
 export const TodoBtn = styled.button`
@@ -129,4 +151,28 @@ export const TodoSpan = styled.span`
 export const DoneSpan = styled.span`
   width: 100%;
   text-decoration: line-through;
+`;
+
+export const EmpLP = styled.p`
+  display: block;
+
+  ${media.small`
+    display: none;
+  `};
+`;
+export const EmpSP = styled.p`
+  display: none;
+
+  ${media.small`
+    display: block;
+  `};
+`;
+
+export const EmpP = styled.p`
+  width: 100%;
+  font-family: NanumSquare;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18.16px;
+  color: ${palette.slate400};
 `;
