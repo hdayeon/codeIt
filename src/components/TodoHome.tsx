@@ -3,6 +3,10 @@ import React, { useEffect, useState } from "react";
 import * as S from "../styles/home";
 import TodoIcon from "../../public/todo.svg";
 import DoneIcon from "../../public/done.svg";
+import TodoEmpLIcon from "../../public/emptyTodoL.svg";
+import TodoEmpSIcon from "../../public/emptyTodoS.svg";
+import DoneEmpLIcon from "../../public/emptyDoneL.svg";
+import DoneEmpSIcon from "../../public/emptyDoneS.svg";
 import { TodoType } from "@/types/todo";
 import Link from "next/link";
 
@@ -83,40 +87,83 @@ const TodoHome: React.FC = () => {
           value={todo}
           onChange={(e) => setTodo(e.target.value)}
         />
-        <S.AddBtn onClick={addTodoHandler}></S.AddBtn>
+        {todos.length > 0 ? (
+          <S.AddBtn onClick={addTodoHandler}></S.AddBtn>
+        ) : (
+          <S.AddActBtn onClick={addTodoHandler}></S.AddActBtn>
+        )}
       </S.HomeInputRow>
+
+      {/* 미완료 todo */}
       <S.TodoListRow>
         <S.TodoListSection>
           <TodoIcon />
           <S.TodoList>
-            {todos
-              ?.filter((item) => !item.isCompleted)
-              .map((item) => (
-                <S.TodoListItem key={item.id}>
-                  <S.TodoBtn
-                    onClick={() => toggleTodoDone(item.id)}
-                  ></S.TodoBtn>
+            {todos.filter((item) => !item.isCompleted).length > 0 ? (
+              todos
+                ?.filter((item) => !item.isCompleted)
+                .map((item) => (
+                  <S.TodoListItem key={item.id}>
+                    <S.TodoBtn
+                      onClick={() => toggleTodoDone(item.id)}
+                    ></S.TodoBtn>
 
-                  <Link href={`/${item.id}`} style={{ textDecoration: "none", color: "#1E293B"}}>
-                    <S.TodoSpan>{item.name}</S.TodoSpan>
-                  </Link>
-                </S.TodoListItem>
-              ))}
+                    <Link
+                      href={`/${item.id}`}
+                      style={{ textDecoration: "none", color: "#1E293B" }}
+                    >
+                      <S.TodoSpan>{item.name}</S.TodoSpan>
+                    </Link>
+                  </S.TodoListItem>
+                ))
+            ) : (
+              <>
+                <S.EmpLP>
+                  <TodoEmpLIcon />
+                </S.EmpLP>
+                <S.EmpSP>
+                  <TodoEmpSIcon />
+                </S.EmpSP>
+                <S.EmpP>
+                  할 일이 없어요.
+                  <br />
+                  TODO를 새롭게 추가해주세요!
+                </S.EmpP>
+              </>
+            )}
           </S.TodoList>
         </S.TodoListSection>
+
+        {/* 완료 todo */}
         <S.DoneListSection>
           <DoneIcon />
           <S.DoneList>
-            {todos
-              ?.filter((item) => item.isCompleted)
-              .map((item) => (
-                <S.DoneListItem key={item.id}>
-                  <S.DoneBtn onClick={() => toggleTodoDone(item.id)}>
-                    ⋁
-                  </S.DoneBtn>
-                  <S.DoneSpan>{item.name}</S.DoneSpan>
-                </S.DoneListItem>
-              ))}
+            {todos.filter((item) => item.isCompleted).length > 0 ? (
+              todos
+                ?.filter((item) => item.isCompleted)
+                .map((item) => (
+                  <S.DoneListItem key={item.id}>
+                    <S.DoneBtn onClick={() => toggleTodoDone(item.id)}>
+                      ⋁
+                    </S.DoneBtn>
+                    <S.DoneSpan>{item.name}</S.DoneSpan>
+                  </S.DoneListItem>
+                ))
+            ) : (
+              <>
+                <S.EmpLP>
+                  <DoneEmpLIcon />
+                </S.EmpLP>
+                <S.EmpSP>
+                  <DoneEmpSIcon />
+                </S.EmpSP>
+                <S.EmpP>
+                  아직 다 한 일이 없어요.
+                  <br />
+                  해야 할 일을 체크해보세요!
+                </S.EmpP>
+              </>
+            )}
           </S.DoneList>
         </S.DoneListSection>
       </S.TodoListRow>
