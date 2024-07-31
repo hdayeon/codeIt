@@ -51,7 +51,8 @@ export const TodoBtnSpan = styled.span`
   margin-left: 14px;
 `;
 
-export const TodoH2 = styled.h2`
+export const TodoNameInput = styled.input`
+  border: none;
   text-decoration: underline;
 `;
 
@@ -134,11 +135,24 @@ export const TodoMemoP = styled.p`
   text-align: center;
 `;
 
+export const TodoMemoText = styled.textarea`
+  width: 100%;
+
+  border: none;
+  resize: none;
+  background-color: transparent;
+  height: 80%;
+
+  position: absolute;
+  top: 50px;
+  text-align: center;
+`;
+
 export const TodoBtnBox = styled.div`
   width: 100%;
   max-width: 996px;
   text-align: right;
-  margin: 16px  0;
+  margin: 16px 0;
 `;
 
 export const TodoAddBtn = styled.button`
@@ -154,6 +168,7 @@ export const TodoAddBtn = styled.button`
   line-height: 18.16px;
   text-align: center;
 `;
+
 
 export const TodoDelBtn = styled.button`
   width: 168px;
