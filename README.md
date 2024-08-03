@@ -1,41 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+<img src="https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=fff&style=for-the-badge" />
+<img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white" />
 
-## Getting Started
+-----
 
-First, run the development server:
+# Todo App
+## **프로젝트 개요**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+• 제목: **Do It**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+• 소개: 할 일 목록을 관리하는 To Do 서비스
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### 홈 목록 페이지
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+**목록 조회**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- 미완료된 할 일과 완료된 할 일을 나누어 볼 수 있습니다.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**할 일 추가**
 
-## Learn More
+- 상단 입력창에 할 일을 쓰고 버튼으로 추가하여 할 일을 새로 생성합니다.
 
-To learn more about Next.js, take a look at the following resources:
+**완료**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 미완료 상태 할 일 항목의 왼쪽 버튼을 클릭하면 체크 표시가 되면서 완료 상태가 됩니다.
+- 완료된 할 일 항목의 왼쪽 버튼을 다시 클릭하면 체크 표시가 사라지면서 진행 중 상태가 됩니다.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 할 일 상세 페이지
 
-## Deploy on Vercel
+**할 일 수정**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 할 일 항목을 클릭한 후 항목 수정이 가능합니다.
+- 항목 이름 수정, 메모 및 이미지 추가를 합니다.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# codeIt
+**할 일 삭제**
+
+- `삭제하기` 버튼을 클릭하면 할 일 삭제가 가능하며, 삭제 완료 후 할 일 목록 페이지로 이동합니다.
