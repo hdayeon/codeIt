@@ -47,6 +47,8 @@ const Detail: React.FC = () => {
       /^[a-zA-Z0-9_.-]*$/.test(file.name)
     ) {
       setImage(file);
+      console.log(image)
+      console.log(file)
       const reader = new FileReader();
       reader.onloadend = () => {
         if (reader.result) {
@@ -75,7 +77,7 @@ const Detail: React.FC = () => {
 
       if (res.ok) {
         const data = await res.json();
-        return data.imageUrl; // 서버에서 반환하는 이미지 URL
+        return data.imageUrl;
       } else {
         console.error("이미지 업로드 실패");
         return null;
@@ -96,6 +98,7 @@ const Detail: React.FC = () => {
           imageUrl = uploadedImageUrl;
         } else {
           alert("이미지 업로드 실패");
+          console.log("실패 image상태",image)
           return;
         }
       }
