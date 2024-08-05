@@ -39,7 +39,7 @@ const Detail: React.FC = () => {
     setTodo((prev) => ({ ...prev, [name]: value }));
   };
 
-  const imageChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const imagePreviewHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (
       file &&
@@ -90,23 +90,19 @@ const Detail: React.FC = () => {
 
   const updateHandler = async () => {
     if (id) {
-      let imageUrl = todo.imageUrl || "";
+      let imageUrl: string = todo.imageUrl || "";
 
       if (image) {
         const uploadedImageUrl = await uploadImage(image);
         if (uploadedImageUrl) {
           imageUrl = uploadedImageUrl;
-        } else {
-          alert("이미지 업로드 실패");
-          console.log("실패 image상태",image)
-          return;
         }
       }
 
       const formData = new FormData();
       formData.append("name", todo.name);
       formData.append("memo", todo.memo || "");
-      formData.append("imageUrl", imageUrl);
+      formData.append("imageUrl", imageUrl || "");
 
       try {
         const res = await fetch(
@@ -180,7 +176,7 @@ const Detail: React.FC = () => {
                 id="fileUpload"
                 type="file"
                 accept="image/*"
-                onChange={imageChangeHandler}
+                onChange={imagePreviewHandler}
                 style={{ display: "none" }}
               />
             </S.TodoImgBox>
