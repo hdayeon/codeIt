@@ -47,8 +47,7 @@ const Detail: React.FC = () => {
       /^[a-zA-Z0-9_.-]*$/.test(file.name)
     ) {
       setImage(file);
-      console.log(image)
-      console.log(file)
+      console.log("선택된 이미지:", file);
       const reader = new FileReader();
       reader.onloadend = () => {
         if (reader.result) {
@@ -77,6 +76,7 @@ const Detail: React.FC = () => {
 
       if (res.ok) {
         const data = await res.json();
+        console.log("업로드이미지 res imageUrl",data.imageUrl);
         return data.imageUrl;
       } else {
         console.error("이미지 업로드 실패");
@@ -98,6 +98,7 @@ const Detail: React.FC = () => {
           imageUrl = uploadedImageUrl;
         }
       }
+      console.log("업데이트 시 이미지 URL:", imageUrl);
 
       const formData = new FormData();
       formData.append("name", todo.name);
@@ -115,6 +116,7 @@ const Detail: React.FC = () => {
         if (res.ok) {
           router.push("/");
           alert("수정이 완료되었습니다.");
+
         } else {
           console.error("수정 실패");
         }
