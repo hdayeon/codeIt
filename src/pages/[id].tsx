@@ -47,7 +47,6 @@ const Detail: React.FC = () => {
       /^[a-zA-Z0-9_.-]*$/.test(file.name)
     ) {
       setImage(file);
-      console.log("선택된 이미지:", file);
       const reader = new FileReader();
       reader.onloadend = () => {
         if (reader.result) {
@@ -73,11 +72,11 @@ const Detail: React.FC = () => {
           body: formData,
         }
       );
+      console.log("업로드 res", res);
 
-      if (res.ok) {
+      if (res) {
         const data = await res.json();
-        console.log("업로드이미지 res imageUrl",data.imageUrl);
-        return data.imageUrl;
+        return data.url;
       } else {
         console.error("이미지 업로드 실패");
         return null;
@@ -98,25 +97,28 @@ const Detail: React.FC = () => {
           imageUrl = uploadedImageUrl;
         }
       }
-      console.log("업데이트 시 이미지 URL:", imageUrl);
 
-      const formData = new FormData();
-      formData.append("name", todo.name);
-      formData.append("memo", todo.memo || "");
-      formData.append("imageUrl", imageUrl || "");
+      const updatedTodo = {
+        name: todo.name,
+        memo: todo.memo || "",
+        imageUrl: imageUrl || "",
+        isCompleted: todo.isCompleted,
+      };
 
       try {
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_APP_SERVER_URL}/items/${id}`,
           {
             method: "PATCH",
-            body: formData,
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedTodo),
           }
         );
         if (res.ok) {
           router.push("/");
           alert("수정이 완료되었습니다.");
-
         } else {
           console.error("수정 실패");
         }
