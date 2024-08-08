@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import * as S from "../styles/detail";
 import { TodoType } from "@/types/todo";
 import ImgIcon from "../../public/img.svg";
+import palette from "../styles/palette";
 
 const Detail: React.FC = () => {
   const router = useRouter();
@@ -156,7 +157,10 @@ const Detail: React.FC = () => {
     <S.DetailLayout>
       {todo && (
         <S.DetailBox>
-          <S.TodoNameBox key={todo.id}>
+          <S.TodoNameBox
+            key={todo.id}
+            $bgColor={todo.isCompleted ? palette.violet100 : "#fff"}
+          >
             <S.TodoBtnSpan></S.TodoBtnSpan>
             <S.TodoNameInput
               type="text"

@@ -29,12 +29,13 @@ export const DetailBox = styled.div`
   align-items: center;
 `;
 
-export const TodoNameBox = styled.div`
+export const TodoNameBox = styled.div<{ $bgColor: string }>`
   width: 100%;
   max-width: 996px;
   height: 64px;
   border-radius: 24px;
   border: 2px solid ${palette.slate900};
+  background-color: ${({ $bgColor }) => $bgColor};
   display: flex;
   align-items: center;
 
@@ -50,10 +51,20 @@ export const TodoBtnSpan = styled.span`
   background-color: #fefce8;
   margin-left: 14px;
 `;
+export const DoneBtnSpan = styled.span`
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid ${palette.violet600};
+  background-color: ${palette.violet600};
+  margin-left: 14px;
+  color: #fff;
+`;
 
 export const TodoNameInput = styled.input`
   border: none;
   text-decoration: underline;
+  background-color: transparent;
 `;
 
 export const TodoConBox = styled.div`
@@ -168,7 +179,6 @@ export const TodoAddBtn = styled.button`
   line-height: 18.16px;
   text-align: center;
 `;
-
 
 export const TodoDelBtn = styled.button`
   width: 168px;

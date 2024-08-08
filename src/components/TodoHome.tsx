@@ -146,7 +146,13 @@ const TodoHome: React.FC = () => {
                     <S.DoneBtn onClick={() => toggleTodoDone(item.id)}>
                       ⋁
                     </S.DoneBtn>
-                    <S.DoneSpan>{item.name}</S.DoneSpan>
+
+                    <Link
+                      href={`/${item.id}`}
+                      style={{ textDecoration: "none", color: "#1E293B" }}
+                    >
+                      <S.DoneSpan>{item.name}</S.DoneSpan>
+                    </Link>
                   </S.DoneListItem>
                 ))
             ) : (
