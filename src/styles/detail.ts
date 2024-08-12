@@ -8,7 +8,6 @@ export const DetailLayout = styled.article`
   height: 100vh;
   margin: 0 auto;
   background-color: #fff;
-  font-family: "NanumSquare";
   color: ${palette.slate800};
 
   ${media.medium`
@@ -22,7 +21,6 @@ export const DetailBox = styled.div`
   height: 100vh;
 
   background-color: #fff;
-  font-family: "NanumSquare";
 
   display: flex;
   flex-direction: column;
@@ -55,8 +53,10 @@ export const DoneBtnSpan = styled.span`
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 2px solid ${palette.violet600};
-  background-color: ${palette.violet600};
+  background-color: transparent;
+  background-image: url("/checked.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   margin-left: 14px;
   color: #fff;
 `;
@@ -94,6 +94,22 @@ export const TodoImgBox = styled.div`
     max-width: 696px;
   `};
 `;
+
+export const TodoImgP = styled.p`
+  width: 100%;
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+`;
+
+export const TodoImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
 export const TodoMemoBox = styled.div`
   width: 100%;
   max-width: 588px;
@@ -109,23 +125,13 @@ export const TodoMemoBox = styled.div`
   `};
 `;
 
-export const TodoImgP = styled.p`
-  width: 100%;
-  position: absolute;
-
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: center;
-`;
-
-export const ImgAddBtn = styled.button`
+export const ImgAddBtn = styled.button<{ $bgImg: string }>`
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background-color: ${palette.slate200};
   border: none;
   font-size: 48px;
-  color: ${palette.slate500};
+  background-image: url(${({ $bgImg }) => $bgImg});
 
   position: absolute;
   bottom: 10px;
@@ -136,7 +142,6 @@ export const TodoMemoP = styled.p`
   width: 100%;
 
   color: #92400e;
-  font-family: NanumSquareB;
   font-size: 16px;
   font-weight: 800;
   line-height: 18.16px;
@@ -166,9 +171,10 @@ export const TodoBtnBox = styled.div`
   margin: 16px 0;
 `;
 
-export const TodoAddBtn = styled.button`
+export const TodoAddBtn = styled.button<{ $bgColor: string }>`
   width: 168px;
   height: 56px;
+  background-color: ${({ $bgColor }) => $bgColor};
   border: 2px solid #0f172a;
   border-radius: 24px;
   box-shadow: 3px 4px 0 rgba(0, 0, 0, 1);

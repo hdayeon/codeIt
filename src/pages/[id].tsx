@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import * as S from "../styles/detail";
 import { TodoType } from "@/types/todo";
 import ImgIcon from "../../public/img.svg";
-import palette from "../styles/palette";
+import palette from "@/styles/palette";
 
 const Detail: React.FC = () => {
   const router = useRouter();
@@ -159,9 +159,14 @@ const Detail: React.FC = () => {
         <S.DetailBox>
           <S.TodoNameBox
             key={todo.id}
-            $bgColor={todo.isCompleted ? palette.violet100 : "#fff"}
+            $bgColor={todo.isCompleted ? "#DDD6FE" : "#fff"}
           >
-            <S.TodoBtnSpan></S.TodoBtnSpan>
+            {todo.isCompleted ? (
+              <S.DoneBtnSpan></S.DoneBtnSpan>
+            ) : (
+              <S.TodoBtnSpan></S.TodoBtnSpan>
+            )}
+
             <S.TodoNameInput
               type="text"
               name="name"
@@ -173,11 +178,15 @@ const Detail: React.FC = () => {
           <S.TodoConBox>
             <S.TodoImgBox>
               <S.TodoImgP>
-                {preview ? <img src={preview} alt="todo" /> : <ImgIcon />}
+                {preview ? (
+                  <S.TodoImg src={preview} alt="todoImage" />
+                ) : (
+                  <ImgIcon />
+                )}
               </S.TodoImgP>
 
-              <S.ImgAddBtn>
-                <label htmlFor="fileUpload">+</label>
+              <S.ImgAddBtn $bgImg={preview ? "/edit.png" : "/plus.png"}>
+                <label htmlFor="fileUpload"></label>
               </S.ImgAddBtn>
 
               <input
@@ -200,7 +209,12 @@ const Detail: React.FC = () => {
           </S.TodoConBox>
 
           <S.TodoBtnBox>
-            <S.TodoAddBtn onClick={updateHandler}>⋁ 수정 완료</S.TodoAddBtn>
+            <S.TodoAddBtn
+              onClick={updateHandler}
+              $bgColor={todo.isCompleted ? palette.lime : "#fff"}
+            >
+              ⋁ 수정 완료
+            </S.TodoAddBtn>
             <S.TodoDelBtn onClick={deleteHandler}>X 삭제하기</S.TodoDelBtn>
           </S.TodoBtnBox>
         </S.DetailBox>
