@@ -7,7 +7,6 @@ export const HomeLayout = styled.div`
   max-width: 1200px;
   height: 100vh;
   margin: 24px auto 0;
-  font-family: "NanumSquare";
   color: ${palette.slate800};
 `;
 
@@ -170,7 +169,6 @@ export const EmpSP = styled.p`
 
 export const EmpP = styled.p`
   width: 100%;
-  font-family: NanumSquare;
   font-size: 16px;
   font-weight: 700;
   line-height: 18.16px;
