@@ -5,7 +5,7 @@ import media from "./media";
 export const DetailLayout = styled.article`
   width: 100%;
   max-width: 1200px;
-  height: 100vh;
+  height: 90vh;
   margin: 0 auto;
   background-color: #fff;
   color: ${palette.slate800};
@@ -13,12 +13,16 @@ export const DetailLayout = styled.article`
   ${media.medium`
     padding: 0 24px;
   `};
+
+  ${media.small`
+    padding: 0 16px;
+  `};
 `;
 
 export const DetailBox = styled.div`
   width: 100%;
   max-width: 1200px;
-  height: 100vh;
+  height: 100%;
 
   background-color: #fff;
 
@@ -170,25 +174,45 @@ export const TodoBtnBox = styled.div`
   max-width: 996px;
   text-align: right;
   margin: 16px 0;
+
+  ${media.medium`
+    text-align: center;
+  `};
+
+  ${media.small`
+    display: flex;
+    justify-content: space-between;
+  `};
 `;
 
 export const TodoAddBtn = styled.button<{ $bgColor: string }>`
-  width: 168px;
+  width: 100%;
+  max-width: 168px;
   height: 56px;
   background-color: ${({ $bgColor }) => $bgColor};
   border: 2px solid #0f172a;
   border-radius: 24px;
   box-shadow: 3px 4px 0 rgba(0, 0, 0, 1);
-  margin-right: 16px;
+  margin-right: 12px;
 
   font-size: 16px;
   font-weight: 700;
   line-height: 18.16px;
   text-align: center;
+
+  ${media.medium`
+    margin-right: 8px;
+
+  `};
+
+  ${media.small`
+    margin-right: 0;
+  `};
 `;
 
 export const TodoDelBtn = styled.button`
-  width: 168px;
+  width: 100%;
+  max-width: 168px;
   height: 56px;
   border: 2px solid #0f172a;
   border-radius: 24px;
