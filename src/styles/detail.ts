@@ -36,6 +36,7 @@ export const TodoNameBox = styled.div<{ $bgColor: string }>`
   background-color: ${({ $bgColor }) => $bgColor};
   display: flex;
   align-items: center;
+  justify-content: center;
 
   gap: 16px;
   margin: 16px 0;
