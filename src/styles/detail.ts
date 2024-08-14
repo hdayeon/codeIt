@@ -5,7 +5,7 @@ import media from "./media";
 export const DetailLayout = styled.article`
   width: 100%;
   max-width: 1200px;
-  height: 90vh;
+  height: 100vh;
   margin: 0 auto;
   background-color: #fff;
   color: ${palette.slate800};
