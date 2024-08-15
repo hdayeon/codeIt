@@ -15,15 +15,15 @@ const TodoHome: React.FC = () => {
   const [todos, setTodos] = useState<TodoType[]>([]);
 
   useEffect(() => {
-    const fetchTodos = async () => {
+    const fetchTodos = async (page : number, pageSize : number) => {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_APP_SERVER_URL}/items`
+        `${process.env.NEXT_PUBLIC_APP_SERVER_URL}/items?page=${page}&pageSize=${pageSize}`
       );
       const todos = await res.json();
       setTodos(todos);
     };
 
-    fetchTodos();
+    fetchTodos(1,10); // 변수로 변경예정
   }, []);
 
   const addTodo = async (newTodo: string) => {

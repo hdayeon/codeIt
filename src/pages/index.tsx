@@ -21,18 +21,18 @@ export default function Home() {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<{
-  initMemoryList: TodoType
-}> = async () => {
-  const getMemoryList = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_SERVER_URL}/items/page?page=1&pageSize=${GET_PAGE_SIZE}}`
-  )
-  const getMemoryListRes: GetMemoryListRes = await getMemoryList.json()
+// export const getServerSideProps: GetServerSideProps<{
+//   initMemoryList: TodoType
+// }> = async () => {
+//   const getMemoryList = await fetch(
+//     `${process.env.NEXT_PUBLIC_APP_SERVER_URL}/items/page?page=1&pageSize=${GET_PAGE_SIZE}}`
+//   )
+//   const getMemoryListRes: GetMemoryListRes = await getMemoryList.json()
 
-  const initMemoryList: TodoType = {
-    pageSize: getMemoryListRes.content,
-    page: getMemoryListRes.pageable.page,
-  }
-  return { props: { initMemoryList } }
-}
+//   const initMemoryList: TodoType = {
+//     pageSize: getMemoryListRes.content,
+//     page: getMemoryListRes.pageable.page,
+//   }
+//   return { props: { initMemoryList } }
+// }
 
