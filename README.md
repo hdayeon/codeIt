@@ -5,6 +5,8 @@
 -----
 
 # Todo App
+![TODO - Chrome 2024-08-17 오후 11_30_18](https://github.com/user-attachments/assets/889f3c6e-e763-4864-84fb-44bcb6a3bfb8)
+
 ## **프로젝트 개요**
 
 • 제목: **Do It**
